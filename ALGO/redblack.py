@@ -61,3 +61,106 @@ class RedBlackTree:
         y.right = x
         x.parent = y
 
+
+    def inserfixup(self, node):
+        while node.parent.color = 1 : # for red
+            if node.parent == node.parent.parent.left:
+                #node.parent is left child 
+                y = node.parent.parent.right 
+                if y.color == 1: #case 1
+                    node.parent.parent = 0
+                    y.color = 0
+                    node.parent.parent.color = 1
+                    node = node.parent.parent
+
+
+                else: # case 2 
+                    if node == node.parent.right:
+                        node = node.parent
+                        self.leftrotation(node)
+
+                        #case3
+                        node.parent.color = 0
+                        node.parent.parent = 1
+                        self.rightrotation(node.parent.parent)
+            else:
+                y = node.parent.parent.left
+                if y.color == 1: #case 1
+                    node.parent.parent = 0
+                    y.color = 0
+                    node.parent.parent.color = 1
+                    node = node.parent.parent
+
+
+                else: # case 2 
+                    if node == node.parent.right:
+                        node = node.parent
+                        self.rightrotation(node)
+
+                        #case3
+                        node.parent.color = 0
+                        node.parent.parent = 1
+                        self.leftrotation(node.parent.parent)
+
+        self.root.color = 0 
+
+
+
+    def insertion(self,data):
+        node = Node(data)
+        node.parent = None
+        node.data = data
+        node.left = self.TNULL
+        node.right = self.TNULL
+        node.color = 1
+        y = None
+        temp = self.root
+
+
+
+
+        while temp is not self.TNULL:
+            y = temp 
+
+            if node.data < temp.data:
+                temp = temp.left
+            else:
+                temp = temp.right 
+        
+        node.parent = y
+        if y == None:
+            self.root = node
+        elif node.data < y.data:
+            y.left = node
+        else:
+            y.right = node
+
+        node.left = self.TNULL
+        node.right = self.TNULL
+        node.color = 0 
+
+        self.inserfixup(node)
+
+
+    def rb_trasplant(self, u, node):
+        if u.parent = self.TNULL:
+            self.root = node
+
+        elif u == u.parent.left:
+            u.parent.left = node
+        else:
+            u.parent.right = node
+
+        node.parent = u.parent
+
+
+
+
+
+
+
+
+
+
+
+    
