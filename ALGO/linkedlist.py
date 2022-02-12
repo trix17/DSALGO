@@ -19,6 +19,23 @@ class linkedlist:
 
         newnode.next = self.head
         self.head = newnode
+#1--> 2-->
+
+    def reverse(self):
+        prev = None
+        curr = self.head
+
+        while curr is not None:
+            next = curr.next 
+            curr.next = prev
+            prev = curr
+            curr = next
+            
+        self.head = prev
+
+
+
+
     # Function to add after prev_node 
     def middle(self, prev_node,data):
         newnode = Node(data)
@@ -55,20 +72,18 @@ class linkedlist:
 
 if __name__ =="__main__":
     llist = linkedlist()
-    llist.head = Node(1)
-    second = Node(2)
-    third = Node(3)
-    fourth = Node(4)
+    
     
 
-    
-    llist.head.next = second
-    second.next = third
-    third.next = fourth 
-
-    llist.end(111)
-    llist.middle(second,10)
+    print("The list before reverse it")
     llist.add(7)
+    llist.add(6)
+    llist.add(5)
+    llist.printlist()
+
+
+    print("The list afte reverse it:")
+    llist.reverse()
     llist.printlist()
     
 
