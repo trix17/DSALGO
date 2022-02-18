@@ -6,9 +6,7 @@ def move_z(list):
             if z_index != i:
                 list[i] = 0
 
-            z_index +=1
-
-
+            z_index +=1 
     return list
 
 list = [7,6,0,1,0,9]
@@ -16,7 +14,7 @@ move_z(list)
 print(list)            
 """
 algo expalnation :
-first loop : z_index increment to 1
+first loop : z_index increment to 1 not equal to zero 
 second loop same , since it is not equal to zero, increment index 2
 third loop no increment since n = 0 at index 2 , 
 fourth loop list[z_index] will become : 7,6,1,1...
